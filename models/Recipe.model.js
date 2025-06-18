@@ -1,6 +1,8 @@
 // Your code here ...
-import mongoose from 'mongoose';
+// Your code here ...
+const mongoose = require('mongoose');
 const { Schema } = mongoose;
+
 const recipeSchema = new Schema({
     title: {
         type: String,
@@ -9,13 +11,14 @@ const recipeSchema = new Schema({
     },
     level: {
         type: String,
-        enum: ['Easy Peasy', 'Amateur Chef', 'UltraPro Chef']},
+        enum: ['Easy Peasy', 'Amateur Chef', 'UltraPro Chef']
+    },
     ingredients: {
         type: [String],
         required: true
     },
-    duration: { trype: Number, min: 0 },
-isArchived: {
+    duration: { type: Number, min: 0 },
+    isArchived: {
         type: Boolean,
         default: false
     },
@@ -26,5 +29,4 @@ isArchived: {
 });
 
 const Recipe = mongoose.model("Recipe", recipeSchema);
-
 module.exports = Recipe;
